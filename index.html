@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame + AR.js Test</title>
+    <!-- A-Frame本体 -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <!-- AR.js拡張 -->
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <!-- マーカー (Hiroマーカー使用) -->
+      <a-marker preset="hiro">
+        <a-entity 
+          gltf-model="url(models/chaei.glb)"
+          position="0 0 0"
+          rotation="0 180 0"
+          scale="0.5 0.5 0.5">
+        </a-entity>
+      </a-marker>
+
+      <!-- カメラ -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
