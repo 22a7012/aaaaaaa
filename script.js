@@ -115,7 +115,7 @@ const initThree = () => {
   const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
   scene.add(ambientLight);
 
-  // --- GLTFLoader で demo.glb を読み込む ---
+  // --- GLTFLoader でローカル demo.glb を読み込む ---
   const loader = new THREE.GLTFLoader();
   loader.load(
     './demo.glb', 
@@ -129,6 +129,7 @@ const initThree = () => {
     error => console.error('モデル読み込み失敗:', error)
   );
 
+  // --- Renderer ---
   renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, canvas:canvas });
   renderer.setSize(w,h);
   renderer.setPixelRatio(window.devicePixelRatio);
