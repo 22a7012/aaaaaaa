@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <title>Marker-less WebAR</title>
+  <title>Marker-less WebAR with GLTF</title>
   <style>
     body { margin:0; overflow:hidden; font-family:sans-serif; }
     .canvas { position: fixed; top:0; left:0; z-index:1; }
@@ -25,11 +25,12 @@
   <canvas id="canvas" class="canvas"></canvas>
   <video id="camera" class="camera" playsinline></video>
 
-  <!-- ローカルの Three.js と DeviceOrientationControls.js を読み込む -->
+  <!-- Three.js と DeviceOrientationControls -->
   <script src="./three.min.js"></script>
   <script src="./DeviceOrientationControls.js"></script>
+  <!-- GLTFLoader -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- メインスクリプト -->
   <script src="./script.js"></script>
 </body>
 </html>
-
