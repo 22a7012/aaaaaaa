@@ -111,25 +111,6 @@ const initThree = () => {
   camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
   camera.position.set(0,0,0);
 
-  // --- ライト ---
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
-  scene.add(ambientLight);
-
-  // --- GLTFLoader でローカル demo.glb を読み込む ---
-  const loader = new THREE.GLTFLoader();
-  loader.load(
-    './demo.glb', 
-    gltf => {
-      object = gltf.scene;
-      object.position.set(0,0,-5); // カメラ前方に固定
-      object.scale.set(1,1,1);
-      scene.add(object);
-    },
-    xhr => console.log(`モデル読み込み中: ${(xhr.loaded/xhr.total*100).toFixed(1)}%`),
-    error => console.error('モデル読み込み失敗:', error)
-  );
-
-  // --- Renderer ---
   renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, canvas:canvas });
   renderer.setSize(w,h);
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -137,6 +118,19 @@ const initThree = () => {
 
   // --- DeviceOrientationControls ---
   controls = new THREE.DeviceOrientationControls(camera, true);
+
+  // --- demo.glb モデル読み込み ---
+  const loader = new THREE.GLTFLoader();
+  loader.load(
+    './demo.glb',
+    gltf => {
+      object = gltf.scene;
+      object.position.set(0,0,-5); // カメラから少し前に置く
+      scene.add(object);
+    },
+    undefined,
+    error => { console.error(error); }
+  );
 
   // --- アニメーションループ ---
   const animate = () => {
