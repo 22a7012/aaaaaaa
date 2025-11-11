@@ -93,7 +93,7 @@ const initThree = () => {
   // --- GLTFLoader ---
   const loader = new THREE.GLTFLoader();
   loader.load(
-    './demo.gltf',
+    './demo.gld',
     (gltf)=>{
       object = gltf.scene;
       object.position.set(0,0,-5);
@@ -127,3 +127,4 @@ window.onload = ()=>{
     .then(()=>{ initThree(); initVideo(); })
     .catch(console.log);
 };
+
